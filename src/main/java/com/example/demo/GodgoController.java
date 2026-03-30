@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 public class GodgoController {
@@ -18,9 +19,19 @@ public class GodgoController {
         return godjoList;
     }
 
-   @PostMapping ("/godjo")
+    @PostMapping("/godjo")
     public void ingodjo(@RequestBody Godjo godjo) {
         godjoList.add(godjo);
-   }
+    }
+
+    @GetMapping("/random")
+    public Integer getRandomNumber() {
+        Random random = new Random();
+
+        // число от 0 до 99
+        int num = random.nextInt(100);
+
+        return num;
+    }
 
 }
